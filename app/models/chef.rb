@@ -12,9 +12,20 @@ class Chef
     FileUtils.rm_rf('app/assets/git-clone')
     @git = Git.clone('https://github.com/daniel-chapdelaine/push-ruby-git', 'app/assets/git-clone', branch: 'master')
     @git.branch('new_branch').checkout
-    # todo remove
-    bump_recipe_version
-    push_to_origin
+    # TODO: remove
+    # bump_recipe_version
+    # push_to_origin
+    # sftp_names
+  end
+
+  def sftp_names
+    path = 'app/assets/git-clone/data_bags/sftp_users/'
+    names = Dir["#{path}*.json"]
+    names.each do |file|
+      file.slice! path
+      file.slice! '.json'
+    end
+    names
   end
 
   def bump_recipe_version
