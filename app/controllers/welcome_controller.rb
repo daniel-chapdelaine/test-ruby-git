@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
+
   def index
-    @git = Chef.new
+    @chef = Chef.new
+    @sftp_user_names = @chef.sftp_user_names
   end
 end

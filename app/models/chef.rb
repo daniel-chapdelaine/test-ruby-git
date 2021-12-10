@@ -1,6 +1,6 @@
 class Chef
 
-  @sftp_user_names = []
+  attr_reader :sftp_user_names
   # @repo < Git::Base
 
   def initialize
@@ -16,10 +16,10 @@ class Chef
     # TODO: remove
     # bump_recipe_version
     # push_to_origin
-    sftp_user_names
+    map_sftp_files_to_name_array
   end
 
-  def sftp_user_names
+  def map_sftp_files_to_name_array
     path = 'app/assets/git-clone/data_bags/sftp_users/'
     @sftp_user_names = Dir["#{path}*.json"]
     @sftp_user_names.each do |file|

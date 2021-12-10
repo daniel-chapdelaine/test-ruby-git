@@ -1,1 +1,9 @@
 <h1> Welcome </h1>
+
+<% if @sftp_user_names %>
+  <ol>
+    <% @sftp_user_names.each do |name| %>
+      <li><%= name %></li>
+    <% end %>
+  </ol>
+<% end %>
