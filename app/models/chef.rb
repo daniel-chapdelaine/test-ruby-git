@@ -1,5 +1,6 @@
 class Chef
 
+  @sftp_user_names = []
   # @repo < Git::Base
 
   def initialize
@@ -15,17 +16,16 @@ class Chef
     # TODO: remove
     # bump_recipe_version
     # push_to_origin
-    # sftp_user_names
+    sftp_user_names
   end
 
   def sftp_user_names
     path = 'app/assets/git-clone/data_bags/sftp_users/'
-    names = Dir["#{path}*.json"]
-    names.each do |file|
+    @sftp_user_names = Dir["#{path}*.json"]
+    @sftp_user_names.each do |file|
       file.slice! path
       file.slice! '.json'
     end
-    names
   end
 
   def bump_recipe_version
