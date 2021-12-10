@@ -33,6 +33,7 @@ class Chef
     @git.add(all: true)
     @git.commit('some awesome changes were made')
     @git.push('origin', 'new_branch')
+    FileUtils.rm_rf('app/assets/git-clone')
   end
 
 end
