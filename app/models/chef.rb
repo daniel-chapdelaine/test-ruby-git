@@ -32,7 +32,7 @@ class Chef
   def push_to_origin
     @git.add(all: true)
     @git.commit('some awesome changes were made')
-    @git.push(remote = 'origin', branch = 'new_branch')
+    @git.push('origin', 'new_branch')
   end
 
 end

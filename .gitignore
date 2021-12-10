@@ -31,4 +31,4 @@
 /config/master.key
 
 # Ignore clones of repositories
-/git-clone/*
+/app/assets/git-clone/
