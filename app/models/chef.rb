@@ -15,10 +15,10 @@ class Chef
     # TODO: remove
     # bump_recipe_version
     # push_to_origin
-    # sftp_names
+    # sftp_user_names
   end
 
-  def sftp_names
+  def sftp_user_names
     path = 'app/assets/git-clone/data_bags/sftp_users/'
     names = Dir["#{path}*.json"]
     names.each do |file|
